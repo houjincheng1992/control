@@ -1,0 +1,13 @@
+section aside {
+    width: 200px;
+    flex:none;
+    background: #333344;
+    overflow-y: scroll;
+}
+
+section #content {
+    padding-bottom: 20000px;
+    margin-bottom: -20000px;
+    overflow-y: hidden;
+}
+
