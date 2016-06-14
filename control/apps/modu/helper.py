@@ -85,8 +85,8 @@ def create_ves_distri(payload):
                                                        )
     if not distri_model:
         return control_response(code=ModuErrorCode.DISTRI_SAVED_FAILED, msg=error, ret_name_id="distri_id")
-    if settings.IF_RUN_MATLAB:
-        matlab_create_ves_distri.apply_async([sub_payload])
+    # if settings.IF_RUN_MATLAB:
+    #     matlab_create_ves_distri.apply_async([sub_payload])
     return control_response(code=0, msg="distri running", ret_set=[distri_id], ret_name_id="distri_id")
 
 def create_ves_parTalb(payload):
@@ -124,8 +124,8 @@ def create_ves_parTalb(payload):
                                                          )
     if not parTable_model:
         return control_response(code=ModuErrorCode.PARTABLE_SAVED_FAILED, msg=error, ret_name_id="partable_id")
-    if settings.IF_RUN_MATLAB:
-        matlab_create_ves_parTable.apply_async([sub_payload])
+    # if settings.IF_RUN_MATLAB:
+    #     matlab_create_ves_parTable.apply_async([sub_payload])
     return control_response(code=0, msg="parTable running", ret_set=[partable_id], ret_name_id="partable_id")
 
 
@@ -163,8 +163,8 @@ def create_time_table(payload):
                                                           )
     if not timetable_model:
         return control_response(code=ModuErrorCode.TIMETABLE_SAVED_FAILED, msg=error, ret_name_id="timetable_id")
-    if settings.IF_RUN_MATLAB:
-        matlab_create_time_table.apply_async([sub_payload])
+    # if settings.IF_RUN_MATLAB:
+    #     matlab_create_time_table.apply_async([sub_payload])
     return control_response(code=0, msg="timetable running", ret_set=[timetable_id], ret_name_id="timetable_id")
 
 def create_ves_data(payload):
@@ -190,8 +190,8 @@ def create_ves_data(payload):
                                                        )
     if not aisdata_model:
         return control_response(code=ModuErrorCode.AISDATA_SAVED_FAILED, msg=error, ret_name_id="aisdata_id")
-    if settings.IF_RUN_MATLAB:
-        matlab_create_ves_data.apply_async([sub_payload])
+    # if settings.IF_RUN_MATLAB:
+    #     matlab_create_ves_data.apply_async([sub_payload])
     return control_response(code=0, msg="aisdate running", ret_set=[aisdata_id], ret_name_id="aisdata_id")
 
 def create_aissig(payload):
@@ -239,8 +239,8 @@ def create_aissig(payload):
                                                          )
         if not signal_model:
             return control_response(code=ModuErrorCode.SIGNAL_SAVED_FAILED, msg=error, ret_name_id="signal_id")
-        if settings.IF_RUN_MATLAB:
-            matlab_create_aisSig.apply_async([sub_payload])
+        # if settings.IF_RUN_MATLAB:
+        #     matlab_create_aisSig.apply_async([sub_payload])
         signal_id_list.append(signal_id)
     return control_response(code=0,
                             msg="signal running",

@@ -21,7 +21,7 @@
                     {% for demo in demo_list %}
                     <tr>
                         <td>
-                            <input type="radio">{{ demo.type }}
+                            <input name="type" type="radio">{{ demo.type }}
                         </td>
                         <td>{{ demo.ant_type }}</td>
                         <td>{{ demo.protocol }}</td>
@@ -30,6 +30,24 @@
                     </tr>
                     {% endfor %}
                 {% endif %}
+                <tr>
+                    <td>
+                        <input name="type" type="radio">method2
+                    </td>
+                    <td>aa</td>
+                    <td>aa</td>
+                    <td>aa</td>
+                    <td>aa</td>
+                </tr><tr>
+                    <td>
+                        <input name="type" type="radio">method2
+                    </td>
+                    <td>aa</td>
+                    <td>aa</td>
+                    <td>aa</td>
+                    <td>aa</td>
+                </tr>
+
                 </tbody>
             </table>
         </div>

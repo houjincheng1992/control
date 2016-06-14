@@ -6,6 +6,11 @@ $(function(){
     //delete function
     var $modul_contain = $("#modul_contain");
     var $delete = $("#delete");
+	//function check(){
+     //   if ($(".modul_contain tbody input").is(':checked')) {
+	//		alert("aa")
+	//	}
+	//}
     $delete.bind("click", function () {
         $(".modul_contain tbody input:checked").parent().parent().remove();//??????
     });
@@ -17,7 +22,7 @@ $(function(){
     var $addOK = $("#addOK");
     var $showTable = $("#showTable");
     var $addClose = $("#addClose");
-    function addMessage(){
+    //function addMessage(){
         //var addString={};
         //for(var i=0; i<$addTableTr.length; i++){
         //    addString[i] = $($addTableTr[i]).find("input").val();
@@ -43,48 +48,43 @@ $(function(){
         ////for(var j=0; j<$addTableTr.length; j++){
         ////$($addTableTr[j]).find("input").val("");
         ////}
-        $("#addClose").click();
-    }
+       //$("#addClose").click();
+  //  }
 
-//   $addClose.bind("click", function(){
-////  	    $('table td').();
-//  	    document.getElementsByTagName("td").style.background="white";
-//      
-//  });
-
-    //modulation page
-    var $modul_btn = $("#modul_btn");
-    var $ais_modulation = $("#ais_modulation");
-    $modul_btn.bind("click", function(){
-        $ais_modulation.attr("class", "show").siblings().attr("class", "hidden");
-        $modul_btn.attr("class", "active").siblings().attr("class", "");
-    });
-
-    //demodulation page
-    var $ais_demodulation = $("#ais_demodulation");
-    var $demodul = $("#demodul"); //demodulation button in the topbar
-    var $demodul_btn = $("#demodul_btn");
-    //$demodul.bind("click", function(){
-    //    $ais_demodulation.attr("class", "show").siblings().attr("class","hidden");
+    ////modulation page
+    //var $modul_btn = $("#modul_btn");
+    //var $ais_modulation = $("#ais_modulation");
+    //$modul_btn.bind("click", function(){
+    //    $ais_modulation.attr("class", "show").siblings().attr("class", "hidden");
+    //    $modul_btn.attr("class", "active").siblings().attr("class", "");
+    //});
+    //
+    ////demodulation page
+    //var $ais_demodulation = $("#ais_demodulation");
+    //var $demodul = $("#demodul"); //demodulation button in the topbar
+    //var $demodul_btn = $("#demodul_btn");
+    ////$demodul.bind("click", function(){
+    ////    $ais_demodulation.attr("class", "show").siblings().attr("class","hidden");
+    ////    $demodul_btn.attr("class", "active").siblings().attr("class", "");
+    ////});
+    //$demodul_btn.bind("click", function(){
+    //    $ais_demodulation.attr("class", "show").siblings().attr("class", "hidden");
     //    $demodul_btn.attr("class", "active").siblings().attr("class", "");
     //});
-    $demodul_btn.bind("click", function(){
-        $ais_demodulation.attr("class", "show").siblings().attr("class", "hidden");
-        $demodul_btn.attr("class", "active").siblings().attr("class", "");
-    });
-    
-    //analysis page
-    var $analy_btn = $("#analy_btn");
-    var ais_analysis = $("#ais_analysis");
-    $analy_btn.bind("click", function(){
-        ais_analysis.attr("class", "show").siblings().attr("class", "hidden");
-        $analy_btn.attr("class", "active").siblings().attr("class", "");
-    });
+    //
+    ////analysis page
+    //var $analy_btn = $("#analy_btn");
+    //var ais_analysis = $("#ais_analysis");
+    //$analy_btn.bind("click", function(){
+    //    ais_analysis.attr("class", "show").siblings().attr("class", "hidden");
+    //    $analy_btn.attr("class", "active").siblings().attr("class", "");
+    //});
+    //
 
       //验证 function,filename
     var $filename = $("#filename");
     $("#addModal1").on('focus',"#filename", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("filename").style.background="white";
     })
     $("#addModal1").on('blur',"#filename", function() {
@@ -96,14 +96,14 @@ $(function(){
 	    }
 	    else{
 			document.getElementById("filename").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 			document.getElementById("filenamecheck").style.visibility="visible";
 		}
     });
     //验证 function,lat
     var $lat = $("#lat");
     $("#addModal1").on('focus',"#lat", function() {
-		addOK.disabled = false;
+		$addOK.disabled = false;
 		document.getElementById("lat").style.background = "white";
 	});
     $("#addModal1").on('blur',"#lat", function(){
@@ -116,7 +116,7 @@ $(function(){
 	    }
 	    else{
 			document.getElementById("lat").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 			document.getElementById("latcheck").style.visibility="visible";
 
 		}
@@ -124,7 +124,7 @@ $(function(){
      //验证 function,lon
     var $lon = $("#lon");
     $("#addModal1").on('focus',"#lon", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("lon").style.background="white";
     })
     $("#addModal1").on('blur',"#lon", function() {
@@ -138,14 +138,14 @@ $(function(){
 	    else{
 			document.getElementById("lon").style.background="white";
 			document.getElementById("loncheck").style.visibility="visible";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
     });
     
      //验证 function,height
     var $height = $("#height");
     $("#addModal1").on('focus',"#height", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("height").style.background="white";
     })
     $("#addModal1").on('blur',"#height", function() {
@@ -162,10 +162,11 @@ $(function(){
 			addOK.disabled=false;
 		}
     });
+    3
      //验证 function,vesnum
     var $vesnum = $("#vesnum");
     $("#addModal1").on('focus',"#vesnum", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("vesnum").style.background="white";
     })
     $("#addModal1").on('blur',"#vesnum", function() {
@@ -178,14 +179,14 @@ $(function(){
 	    else{
 			document.getElementById("vesnum").style.background="white";
 			document.getElementById("vesnumcheck").style.visibility="visible";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
     });
     
      //验证 function,obtime
     var $obtime = $("#obtime");
     $("#addModal1").on('focus',"#obtime", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("obtime").style.background="white";
     })
     $("#addModal1").on('blur',"#obtime", function() {
@@ -198,14 +199,14 @@ $(function(){
 	    else{
 			document.getElementById("obtime").style.background="white";
 			document.getElementById("obtimecheck").style.visibility="visible";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
     });
     
      //验证 function,ant_pitch
     var $ant_pitch = $("#ant_pitch");
     $("#addModal1").on('focus',"#ant_pitch", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("ant_pitch").style.background="white";
     })
     $("#addModal1").on('blur',"#ant_pitch", function() {
@@ -218,14 +219,14 @@ $(function(){
 	    else{
 			document.getElementById("ant_pitch").style.background="white";
 			document.getElementById("ant_pitchcheck").style.visibility="visible";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
     });
     
      //验证 function,ant_azimuth
     var $ant_azimuth = $("#ant_azimuth");
     $("#addModal1").on('focus',"#ant_azimuth", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("ant_azimuth").style.background="white";
     })
     $("#addModal1").on('blur',"#ant_azimuth", function() {
@@ -240,7 +241,7 @@ $(function(){
 			document.getElementById("ant_azimuth").style.background="white";
 //			$("#ant_azimuthcheck").removeClass("check").addClass("checkV");
 			document.getElementById("ant_azimuthcheck").style.visibility="visible";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
     });
 	//封装blurValidate()函数
@@ -253,7 +254,7 @@ $(function(){
 	    else{
 			document.getElementById(elemeId).style.background="white";
 			document.getElementById(elemCheckId).style.visibility="visible";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	}
 
@@ -280,7 +281,7 @@ $(function(){
     //});
 	 var $snr = $("#snr");
     $("#addModal1").on('focus',"#snr", function() {
-    	addOK.disabled=false;
+    	$addOK.disabled=false;
     	document.getElementById("snr").style.background="white";
     })
     $("#addModal1").on('blur',"#snr", function() {
@@ -295,11 +296,11 @@ $(function(){
 		if((!regExp.test(text))||text>90||text<-90){
 	        document.getElementById("lat").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    } 
 	    else{
 			document.getElementById("lat").style.background="white";	
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -311,11 +312,11 @@ $(function(){
 		if((!regExp.test(text))||text>180||text<-180){
 	        document.getElementById("lon").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    } 
 	    else{
 			document.getElementById("lon").style.background="white";	
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -326,11 +327,11 @@ $(function(){
 	    if(text.length>20||text==null||text==""){
 	        document.getElementById("filename").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("filename").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -342,11 +343,11 @@ $(function(){
 		if(!regExp.test(text)){
 	        document.getElementById("height").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("height").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -358,11 +359,11 @@ $(function(){
 		if(!regExp.test(text)){
 	        document.getElementById("vesnum").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("vesnum").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -374,11 +375,11 @@ $(function(){
 		if(!regExp.test(text)){
 	        document.getElementById("obtime").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("obtime").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -390,11 +391,11 @@ $(function(){
 		if((!regExp.test(text))||text>180||text<-180){
 	        document.getElementById("ant_pitch").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("ant_pitch").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -406,11 +407,11 @@ $(function(){
 		if((!regExp.test(text))||text>360||text<0){
 	        document.getElementById("ant_azimuth").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("ant_azimuth").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -422,11 +423,11 @@ $(function(){
 		if((!regExp.test(text))){
 	        document.getElementById("snr").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("snr").style.background="white";
-			addOK.disabled=false;
+			$addOK.disabled=false;
 		}
 	    return flag;
     }
@@ -444,7 +445,7 @@ $(function(){
 		var flag11 = validateFormsnr();
     	if(flag3&&flag4&&flag5&&flag6&&flag7&&flag8&&flag9&&flag10&&flag11){
     		flag=true;
-    		addOK.disabled=false;
+    		$("#addOK").disabled=false;
             //document.getElementById("latcheck").style.visibility="hidden";
             //document.getElementById("loncheck").style.visibility="hidden";
             //document.getElementById("filenamecheck").style.visibility="hidden";
@@ -459,7 +460,7 @@ $(function(){
     		
     	}
     	else{
-    		addOK.disabled=true;
+    		$addOK.disabled=true;
     	}
     	return flag;
     }
@@ -467,15 +468,15 @@ $(function(){
 $('#addModal1').on('click','#addOK',function(){
     	var flag = validateForm();
     	if(flag){
-    		ajax();
-			addMessage();
+    		aj();
+			$("#addClose").click();
     	}
     });
 
 
-function ajax(){
+function aj(){
 	var param={
-	"filename":$("#filename").val(),
+	"name_signal":$("#filename").val(),
 	"lat":$("#lat").val(),
 	"lon":$("#lon").val(),
 	"height":$("#height").val(),
@@ -486,7 +487,7 @@ function ajax(){
 	"ant-type":$("#ant_type").val(),
 	"channel_type":$("#channel_type").val(),
 	"protocol":$("#protocol").val(),
-	"snr":$("3snr").val(),
+	"snr":$("#snr").val(),
 	"packagenum":$("#packagenum").val(),
 	"distri_mode":$("#distri_mode").val(),
 	}
@@ -526,7 +527,7 @@ function ajax(){
 						for(var i=0; i<$showTableTh.length;i++){
 							addString[i] = 0;
 							addString[1] = signal_id[j];
-							addString[0] = signal_name+j;
+							addString[0] = signal_name+"_"+j;
 						}
 						var strTip;
 						strTip = "<tr><td class='table-time'><input type='checkbox'>"+addString[0]+

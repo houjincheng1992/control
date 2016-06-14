@@ -56,6 +56,14 @@ class newindex(View):
             # logger.info(info)
         # info = {"a": 1, "b": 2, "c": 3}
         return render(request, "index/newIndex.html", Context({"Info": info}))
+class demodul(View):
+    def get(self, request):
+
+        return render(request, "index/demodul.html")
+class analysis(View):
+    def get(self, request):
+
+        return render(request, "index/analysis.html")
 class addmodal(View):
     def get(self, request):
 

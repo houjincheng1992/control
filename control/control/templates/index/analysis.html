@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="{% static "bz/vendor/bootstrap/dist/css/bootstrap.css" %}">
+		<link rel="stylesheet" href="{% static "bz/vendor/fontawesome/css/font-awesome.min.css" %}">
+		<link rel="stylesheet" href="{% static "bz/base.css" %}">
+
+		<title>AIS平台</title>
+	</head>
+<!-------------------------------------------------------body----------------------------------------------------------------->
+	<body>
+		<div class="wrapper-ais "><!--总页面-->
+			<div class="left-container "><!--左边总侧栏-->
+				<div class="side-navbar">
+					<div class="side-heading text-center "><!--左上-->
+						<p>AIS平台</p>
+        			</div>
+	        		<div class="side-nav container"><!--左下-->
+			            <ul class="nav nav-stacked nav-pills">
+			                <li  id="modul_btn"><a href="newindex.html"><span class="fa fa-user"></span>调制</a></li>
+			                <li  id="demodul_btn"><a href="demodul.html"><span class="fa fa-user"></span>解调</a></li>
+			                <li  id="analy_btn" class="active"><a href="analysis.html"><span class="fa fa-user"></span>分析</a></li>
+			            </ul>
+	        		</div>
+    			</div>
+			</div>
+			<div class="right-container">
+				<div class="top-nav">
+					 <div class="nav navbar-nav myNav">
+                        <span ><a href="#"><span class="fa fa-user"></span>Super</a> </span>
+                        <!--<span ><a href="#"><span class="fa fa-flag "></span>注册</a> </span>-->
+                        <span ><a href="#"><span class="fa fa-cogs"></span>退出</a> </span>
+                    </div>
+				</div>
+				<div class="main">
+
+
+
+     <!-------------------------------------------------分析页面------------------------------------------------------------------->
+			        <div id="ais_analysis" >
+			                        分析页面
+			        </div>
+				</div>
+			</div>
+		</div>
+<!----------------------------------------------addModal1--------------------------------------------------------------------->
+		<div id="addModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<!-------------addModalDemodul--------------------------------------------------------------------------------------------------->
+        <div id="addModalDemodul" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<!-------------addModalType--------------------------------------------------------------------------------------------------->
+        <div id="addModalType" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<script type="application/javascript" src="{% static "bz/vendor/jquery/dist/jquery.js" %}"></script>
+<script type="application/javascript" src="{% static "bz/vendor/bootstrap/dist/js/bootstrap.js" %}"></script>
+<script type="application/javascript" src="{% static "bz/base.js" %}" charset="UTF-8"></script>
+	</body>
+</html>
