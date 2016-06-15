@@ -2,6 +2,11 @@
 body{
     background-color: #E9F7F1;
 }
+.left-container{
+			float: left;
+			width: 20%;
+			height: 725px;
+		}
 .wrapper-ais .left-container .side-navbar{
     width: 20%;
     height: 725px;
@@ -26,6 +31,11 @@ body{
     box-shadow: 0 0 3px #1E2121;
     position: fixed;
 }
+.top-nav{
+			padding-right: 40px;
+			height: 60px;
+			background:#eee ;
+		}
 .wrapper-ais .side-navbar .side-heading{
     padding-top: 18px;
     background-color: #28293F;
@@ -131,3 +141,29 @@ body{
  	color: yellowgreen;
  	visibility:visible;
  }
+.myNav{
+    line-height: 60px;
+    }
+.myNav span{
+    margin-right: 10px;
+    }
+@media (min-width: 700px){
+    .myNav{
+        float: right;
+    }
+}
+@media (max-width: 700px) {
+    .top-nav{
+        text-align: center;
+    }
+}
+.main{
+    padding: 0 20px 20px 20px;
+}
+.myPanel{
+    float: left;
+    padding: 0 5px 0 0;
+}
+html input[type="button"].noclick{
+    cursor: no-drop;
+}

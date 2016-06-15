@@ -34,6 +34,6 @@ class Router():
                 "demodSignal_id": demodSignal_id,
                 "action": action
             }
-            if settings.IF_RUN_MATLAB:
+            if settings.IF_RUN_MATLAB == 'True':
                 CheckProb.apply_async([sub_payload])
         return control_response(code=0, msg="checkprob is running!")

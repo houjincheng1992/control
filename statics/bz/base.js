@@ -6,6 +6,11 @@ $(function(){
     //delete function
     var $modul_contain = $("#modul_contain");
     var $delete = $("#delete");
+	//function check(){
+     //   if ($(".modul_contain tbody input").is(':checked')) {
+	//		alert("aa")
+	//	}
+	//}
     $delete.bind("click", function () {
         $(".modul_contain tbody input:checked").parent().parent().remove();//??????
     });
@@ -17,7 +22,7 @@ $(function(){
     var $addOK = $("#addOK");
     var $showTable = $("#showTable");
     var $addClose = $("#addClose");
-    function addMessage(){
+    //function addMessage(){
         //var addString={};
         //for(var i=0; i<$addTableTr.length; i++){
         //    addString[i] = $($addTableTr[i]).find("input").val();
@@ -43,48 +48,43 @@ $(function(){
         ////for(var j=0; j<$addTableTr.length; j++){
         ////$($addTableTr[j]).find("input").val("");
         ////}
-        $("#addClose").click();
-    }
+       //$("#addClose").click();
+  //  }
 
-//   $addClose.bind("click", function(){
-////  	    $('table td').();
-//  	    document.getElementsByTagName("td").style.background="white";
-//      
-//  });
-
-    //modulation page
-    var $modul_btn = $("#modul_btn");
-    var $ais_modulation = $("#ais_modulation");
-    $modul_btn.bind("click", function(){
-        $ais_modulation.attr("class", "show").siblings().attr("class", "hidden");
-        $modul_btn.attr("class", "active").siblings().attr("class", "");
-    });
-
-    //demodulation page
-    var $ais_demodulation = $("#ais_demodulation");
-    var $demodul = $("#demodul"); //demodulation button in the topbar
-    var $demodul_btn = $("#demodul_btn");
-    //$demodul.bind("click", function(){
-    //    $ais_demodulation.attr("class", "show").siblings().attr("class","hidden");
+    ////modulation page
+    //var $modul_btn = $("#modul_btn");
+    //var $ais_modulation = $("#ais_modulation");
+    //$modul_btn.bind("click", function(){
+    //    $ais_modulation.attr("class", "show").siblings().attr("class", "hidden");
+    //    $modul_btn.attr("class", "active").siblings().attr("class", "");
+    //});
+    //
+    ////demodulation page
+    //var $ais_demodulation = $("#ais_demodulation");
+    //var $demodul = $("#demodul"); //demodulation button in the topbar
+    //var $demodul_btn = $("#demodul_btn");
+    ////$demodul.bind("click", function(){
+    ////    $ais_demodulation.attr("class", "show").siblings().attr("class","hidden");
+    ////    $demodul_btn.attr("class", "active").siblings().attr("class", "");
+    ////});
+    //$demodul_btn.bind("click", function(){
+    //    $ais_demodulation.attr("class", "show").siblings().attr("class", "hidden");
     //    $demodul_btn.attr("class", "active").siblings().attr("class", "");
     //});
-    $demodul_btn.bind("click", function(){
-        $ais_demodulation.attr("class", "show").siblings().attr("class", "hidden");
-        $demodul_btn.attr("class", "active").siblings().attr("class", "");
-    });
-    
-    //analysis page
-    var $analy_btn = $("#analy_btn");
-    var ais_analysis = $("#ais_analysis");
-    $analy_btn.bind("click", function(){
-        ais_analysis.attr("class", "show").siblings().attr("class", "hidden");
-        $analy_btn.attr("class", "active").siblings().attr("class", "");
-    });
+    //
+    ////analysis page
+    //var $analy_btn = $("#analy_btn");
+    //var ais_analysis = $("#ais_analysis");
+    //$analy_btn.bind("click", function(){
+    //    ais_analysis.attr("class", "show").siblings().attr("class", "hidden");
+    //    $analy_btn.attr("class", "active").siblings().attr("class", "");
+    //});
+    //
 
       //验证 function,filename
     var $filename = $("#filename");
     $("#addModal1").on('focus',"#filename", function() {
-    	addOK.disabled=false;
+    	addOK.disabled = false;
     	document.getElementById("filename").style.background="white";
     })
     $("#addModal1").on('blur',"#filename", function() {
@@ -96,7 +96,7 @@ $(function(){
 	    }
 	    else{
 			document.getElementById("filename").style.background="white";
-			addOK.disabled=false;
+			addOK.disabled = false;
 			document.getElementById("filenamecheck").style.visibility="visible";
 		}
     });
@@ -162,6 +162,7 @@ $(function(){
 			addOK.disabled=false;
 		}
     });
+    3
      //验证 function,vesnum
     var $vesnum = $("#vesnum");
     $("#addModal1").on('focus',"#vesnum", function() {
@@ -326,11 +327,11 @@ $(function(){
 	    if(text.length>20||text==null||text==""){
 	        document.getElementById("filename").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+	        $addOK.attr("disabled",true);
 	    }
 	    else{
 			document.getElementById("filename").style.background="white";
-			addOK.disabled=false;
+			$addOK.attr("disabled",false);
 		}
 	    return flag;
     }
@@ -390,7 +391,7 @@ $(function(){
 		if((!regExp.test(text))||text>180||text<-180){
 	        document.getElementById("ant_pitch").style.background="orangered";
 	        flag = false;
-	        addOK.disabled=true;
+            addOK.disabled=true;
 	    }
 	    else{
 			document.getElementById("ant_pitch").style.background="white";
@@ -464,92 +465,91 @@ $(function(){
     	return flag;
     }
 
-$('#addModal1').on('click','#addOK',function(){
-    	var flag = validateForm();
-    	if(flag){
-    		ajax();
-			addMessage();
-    	}
+    $('#addModal1').on('click','#addOK',function(){
+        var flag = validateForm();
+        if(flag){
+            aj();
+            $("#addClose").click();
+        }
     });
 
-
-function ajax(){
-	var param={
-	"filename":$("#filename").val(),
-	"lat":$("#lat").val(),
-	"lon":$("#lon").val(),
-	"height":$("#height").val(),
-	"vesnum":$("#vesnum").val(),
-	"obtime":$("#obtime").val(),
-	"ant_pitch":$("#ant_pitch").val(),
-	"ant_azimuth":$("#ant_azimuth").val(),
-	"ant-type":$("#ant_type").val(),
-	"channel_type":$("#channel_type").val(),
-	"protocol":$("#protocol").val(),
-	"snr":$("3snr").val(),
-	"packagenum":$("#packagenum").val(),
-	"distri_mode":$("#distri_mode").val(),
-	}
-	$.ajax({
-		type: 'POST',
-		dataType: 'JSON',
-		url: '/modu/createsignal',
-		success:function(res) {
-			if(res.ret_code==0){
-				if(res.total_count==1){
-					var signal_id = res.ret_set;
-					var signal_name =$("#filename").val();
-					var $showTableTh = $("#showTable").find("th");
-					var addString={};
-					for(var i=0; i<$showTableTh.length; i++){
-						addString[i] = 0;
-						addString[1] = signal_id;
-						addString[0] = signal_name;
-					}
-					var strTip;
-					strTip = "<tr><td class='table-time'><input type='checkbox'>"+addString[0]+
-							 "</td><td class='table-time'>"+addString[1]+
-							 "</td><td class='table-time'>"+addString[2]+
-							 "</td><td class='table-time'>"+addString[3]+
-							 "</td><td class='table-time'>"+addString[4]+
-						     "</td><td class='table-time'>"+addString[5]+
-							 "</td></tr>"
-					$(strTip).appendTo($showTable);
-				}
-				else{
-					var total_count = res.total_count;
-					var signal_id = res.ret_set[0];
-					var signal_name =$("#filename").val();
-					var $showTableTh = $("#showTable").find("th");
-					var addString={};
-					for(var j=0;j<total_count;j++){
-						for(var i=0; i<$showTableTh.length;i++){
-							addString[i] = 0;
-							addString[1] = signal_id[j];
-							addString[0] = signal_name+j;
-						}
-						var strTip;
-						strTip = "<tr><td class='table-time'><input type='checkbox'>"+addString[0]+
-								 "</td><td class='table-time'>"+addString[1]+
-								 "</td><td class='table-time'>"+addString[2]+
-								 "</td><td class='table-time'>"+addString[3]+
-								 "</td><td class='table-time'>"+addString[4]+
-								 "</td><td class='table-time'>"+addString[5]+
-								 "</td></tr>"
-						$(strTip).appendTo($showTable);
-					}
-				}
-			}
-			else{
-				alert("创建信号不成功！")
-			}
-		},
-		data: JSON.stringify(param),
-		headers: {
-			'X-CSRFToken': 'JxH08rgyxxGyiH4TlmjCpPSjHrtHQAle',//?
-			'Content-Type': 'application/json'
-		}
-	});
+    function aj(){
+        var param={
+        "name_signal":$("#filename").val(),
+        "lat":$("#lat").val(),
+        "lon":$("#lon").val(),
+        "height":$("#height").val(),
+        "vesnum":$("#vesnum").val(),
+        "obtime":$("#obtime").val(),
+        "ant_pitch":$("#ant_pitch").val(),
+        "ant_azimuth":$("#ant_azimuth").val(),
+        "ant-type":$("#ant_type").val(),
+        "channel_type":$("#channel_type").val(),
+        "protocol":$("#protocol").val(),
+        "snr":$("#snr").val(),
+        "packagenum":$("#packagenum").val(),
+        "distri_mode":$("#distri_mode").val(),
+        }
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/modu/createsignal',
+            success:function(res) {
+                if(res.ret_code==0){
+                    if(res.total_count==1){
+                        var signal_id = res.ret_set;
+                        var signal_name =$("#filename").val();
+                        var $showTableTh = $("#showTable").find("th");
+                        var addString={};
+                        for(var i=0; i<$showTableTh.length; i++){
+                            addString[i] = 0;
+                            addString[1] = signal_id;
+                            addString[0] = signal_name;
+                        }
+                        var strTip;
+                        strTip = "<tr><td class='table-time'><input type='checkbox'>"+addString[0]+
+                                 "</td><td class='table-time'>"+addString[1]+
+                                 "</td><td class='table-time'>"+addString[2]+
+                                 "</td><td class='table-time'>"+addString[3]+
+                                 "</td><td class='table-time'>"+addString[4]+
+                                 "</td><td class='table-time'>"+addString[5]+
+                                 "</td></tr>"
+                        $(strTip).appendTo($showTable);
+                    }
+                    else{
+                        var total_count = res.total_count;
+                        var signal_id = res.ret_set[0];
+                        var signal_name =$("#filename").val();
+                        var $showTableTh = $("#showTable").find("th");
+                        var addString={};
+                        for(var j=0;j<total_count;j++){
+                            for(var i=0; i<$showTableTh.length;i++){
+                                addString[i] = 0;
+                                addString[1] = signal_id[j];
+                                addString[0] = signal_name+"_"+j;
+                            }
+                            var strTip;
+                            strTip = "<tr><td class='table-time'><input type='checkbox'>"+addString[0]+
+                                     "</td><td class='table-time'>"+addString[1]+
+                                     "</td><td class='table-time'>"+addString[2]+
+                                     "</td><td class='table-time'>"+addString[3]+
+                                     "</td><td class='table-time'>"+addString[4]+
+                                     "</td><td class='table-time'>"+addString[5]+
+                                     "</td></tr>"
+                            $(strTip).appendTo($showTable);
+                        }
+                    }
+                }
+                else{
+                    alert("创建信号不成功！")
+                }
+            },
+            data: JSON.stringify(param),
+            headers: {
+                'X-CSRFToken': 'JxH08rgyxxGyiH4TlmjCpPSjHrtHQAle',//?
+                'Content-Type': 'application/json'
+            }
+	    });
 	//var successFun = function(res) {
 	//		if(res.ret_code==0){
 	//		    alert("sucess!")
@@ -558,16 +558,74 @@ function ajax(){
 	//			alert("创建信号不成功！")
 	//		}
 	//	};
-}
+    }
+
+    $('#addModalType').on('click','#addOK',function(){
+        var val=$(':radio[name="type"]:checked').val();
+        if(val){
+            ajDe();
+            $("#addClose").click();
+        }
+    });
+
+    function ajDe() {
+        var elem= $('input:radio[name="type"]:checked').parent().siblings();
+        var param = {
+            "signal_id": "signal-26anue4b",
+            "ant_type": elem[0].innerHTML,
+            "protocol": elem[1].innerHTML,
+            "sync_type": elem[2].innerHTML,
+        }
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/demod/demodsignal',
+            success: function (res) {
+                if (res.ret_code == 0) {
+                    alert("信号解调成功！")
+                }
+                else {
+                    alert("信号解调不成功！")
+                }
+            },
+            data: JSON.stringify(param),
+            headers: {
+                'X-CSRFToken': 'JxH08rgyxxGyiH4TlmjCpPSjHrtHQAle',
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+    $(":checkbox").bind('mouseout',function(){
+        var val=$(':checkbox:checked').val();
+        if(val) {
+            $("#delete").removeClass("noclick");
+            $("#demodul").removeClass("noclick");
+        }
+        else{
+            $("#delete").addClass("noclick");
+            $("#demodul").addClass("noclick");
+        }
+    });
+    function addmodalType(){
+        var val=$(':checkbox:checked').val();
+        if(val){
+            $('#addModalType').load('/addModalType.html');
+        }
+    }
+    $("#demodul").bind('click',function(){
+        addmodalType();
+    });
+
 
 });
+
+
+
 function addmodal(){
 	$('#addModal1').load('/addmodal.html');
 }
 function addmodalDemodul(){
 	$('#addModalDemodul').load('/addModalDemodul.html');
 }
-function addmodalType(){
-	$('#addModalType').load('/addModalType.html');
-}
+
     

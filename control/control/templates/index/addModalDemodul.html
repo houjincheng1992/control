@@ -6,12 +6,20 @@
             <h4 class="modal-title" >创建解调方式</h4>
          </div>
         <div class="modal-body">
-            <table class="table table-bordered" id="">
+            <table class="table table-bordered" id="addTableDemodul">
                 <tbody>
                 <tr>
-                    <th class="text-center"> ant_type_demodul</th>
+                    <th class="text-center">type_name_de</th>
                     <td>
-                        <select class="form-control" id="ant_type_demodul" name="ant_type_demodul">
+                        <input class="form-control" id="type_name_de" name="type_name_de"
+                               type="text" placeholder="请输入解调方式名，少于20个字符">
+                        <span><span id="type_name_decheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center"> ant_type_de</th>
+                    <td>
+                        <select class="form-control" id="ant_type_de" name="ant_type_de">
                           <option>single_ant</option>
                           <option>double_ant</option>
                           <option>four_ant</option>
@@ -19,18 +27,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <th class="text-center">sync_type</th>
+                    <th class="text-center">protocol_de</th>
                     <td>
-                        <select class="form-control" id="sync_type" name="sync_type">
-                          <option>default</option>
+                        <select class="form-control" id="protocol_de" name="protocol_de">
+                          <option>SOTDMA</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <th class="text-center">protocol_demodul</th>
+                    <th class="text-center">sync_type</th>
                     <td>
-                        <select class="form-control" id="protocol_demodul" name="protocol_demodul">
-                          <option>SOTDMA</option>
+                        <select class="form-control" id="sync_type" name="sync_type">
+                          <option>DEFAULT</option>
                         </select>
                     </td>
                 </tr>
@@ -47,7 +55,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="addClose">Close</button>
-            <button type="button" class="btn btn-primary" id="addOK">OK</button>
+            <button type="button" class="btn btn-primary" id="addOKDemodul">OK</button>
         </div>
      </div>
 </div>

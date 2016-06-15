@@ -50,7 +50,7 @@ class Router():
                     "action": ant_type
                 }
                 logger.info("The sub_payload is %s" % sub_payload)
-                if settings.IF_RUN_MATLAB:
+                if settings.IF_RUN_MATLAB == 'True':
                     Demod_single_ant.apply_async([sub_payload])
 
             if key_ant_type == "douoble_ant":
@@ -60,7 +60,7 @@ class Router():
                     "sync_type": sync_type,
                     "action": ant_type
                 }
-                if settings.IF_RUN_MATLAB:
+                if settings.IF_RUN_MATLAB == 'True':
                     Demod_double_ant.apply_async([sub_payload])
 
             if key_ant_type == "four_ant":
@@ -70,6 +70,6 @@ class Router():
                     "sync_type": sync_type,
                     "action": ant_type
                 }
-                if settings.IF_RUN_MATLAB:
+                if settings.IF_RUN_MATLAB == 'True':
                     Demod_four_ant.apply_async([sub_payload])
         return control_response(code=0, msg="Demod is running!")

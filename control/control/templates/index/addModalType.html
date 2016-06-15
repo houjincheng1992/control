@@ -9,9 +9,9 @@
             <table class="table table-bordered text-center" id="">
                 <thead>
                     <tr>
-                        <th class="text-center active">type</th>
-                        <th class="text-center active">ant_type</th>
-                        <th class="text-center active">protocol</th>
+                        <th class="text-center active">type_name_de</th>
+                        <th class="text-center active">ant_type_de</th>
+                        <th class="text-center active">protocol_de</th>
                         <th class="text-center active">sync_type</th>
                         <th class="text-center active">mod_type</th>
                     </tr>
@@ -21,15 +21,33 @@
                     {% for demo in demo_list %}
                     <tr>
                         <td>
-                            <input type="radio">{{ demo.type }}
+                            <input name="type" type="radio" value="{{ demo.type_name_de }}">{{ demo.type_name_de }}
                         </td>
-                        <td>{{ demo.ant_type }}</td>
-                        <td>{{ demo.protocol }}</td>
+                        <td>{{ demo.ant_type_de }}</td>
+                        <td>{{ demo.protocol_de }}</td>
                         <td>{{ demo.sync_type }}</td>
                         <td>{{ demo.mod_type }}</td>
                     </tr>
                     {% endfor %}
                 {% endif %}
+                <tr>
+                    <td>
+                        <input name="type" type="radio" value="method_2">method_2
+                    </td>
+                    <td>double_ant</td>
+                    <td>SOTDMA</td>
+                    <td>DEFAULT</td>
+                    <td>gmsk</td>
+                </tr><tr>
+                    <td>
+                        <input name="type" type="radio" value="method_3">method_3
+                    </td>
+                    <td>aa</td>
+                    <td>aa</td>
+                    <td>aa</td>
+                    <td>aa</td>
+                </tr>
+
                 </tbody>
             </table>
         </div>

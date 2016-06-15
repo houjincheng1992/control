@@ -16,7 +16,6 @@ from .sub_view import Router
 
 # from control.control.base import get_path
 from control.control.logger import getLogger
-
 logger = getLogger(__name__)
 
 from .models import SignalModel
@@ -45,10 +44,6 @@ class CreateSignal(APIView):
     def post(self, request, *args, **kwargs):
         req_data = request.data
         logger.info(req_data)
-        # logger.info(get_path.MATLAB_FILE_PATH)
-        # logger.info(get_path.CELERY_PATH)
-        # logger.info(get_path.CURRENT_PATH)
-        # logger.info("filename is %s" % SignalModel.get_signal_by_id("signal-h7aiwz4v").filename)
         validator = CreateSignalSerializer(data=req_data)
         logger.info("validator is valid: %s" % validator.is_valid())
         if not validator.is_valid():
@@ -108,11 +103,10 @@ class CreateSignal(APIView):
             "signal_id": signal_id,
             "transInterval": transInterval
         }
-
         logger.info("The main payload is %s" % payload)
         route = Router(payload)
         resp = route.CreateSignalRouter()
-        signal_info_save.apply_async(resp["ret_set"])
+        # signal_info_save.apply_async(resp["ret_set"])
         return Response(resp, status=status.HTTP_200_OK)
 
 
