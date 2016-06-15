@@ -1,4 +1,4 @@
-# coding = utf-8
+# coding=utf-8
 import os
 import re
 
@@ -10,18 +10,19 @@ import matlab.engine
 class AISSig():
     def createAISSig(self):
         path = "../devops/AISSig"
-        signum = 1000
+        signum = 10
+        obtime = 12
         conflictNum = 2
         totalratio = 1
         channelnum = 1
         os.chdir('../ais_testmodule/')
         eng = matlab.engine.start_matlab()
         for powdiff in range(0, 15):
-            for EbN0 in range(10, 11):
+            for EbN0 in range(1, 2):
                 try:
                     # print 'success'
                     #sig.create(float(powdiff), float(signum), float(conflictNum), float(totalratio), float(channelnum), float(EbN0), path)
-                    eng.test(float(powdiff), float(signum), float(conflictNum), float(totalratio), float(channelnum), float(EbN0), path)
+                    eng.test(float(obtime), float(powdiff), float(signum), float(conflictNum), float(totalratio), float(channelnum), float(EbN0), path)
                     # print 'success'
                 except Exception as exp:
                     # print "powdiff: %s  EbN0: %s" %(powdiff, EbN0)
@@ -102,12 +103,13 @@ class Analysis():
         return res
 anay = Analysis()
 
+
 def genXlsFormat(result):
     """
     TODO: from txt gen xls
     """
     try:
-        ft = open('./result.txt', 'w+')
+        ft = open('./checkprob_result/result.txt', 'w+')
     except Exception as exp:
         msg = "genxlsFormat error:'\n'" + str(exp)
         error.add_error_msg(msg)
@@ -123,6 +125,8 @@ def genXlsFormat(result):
             ft.write(context)
             print eb, po, pr
     ft.close()
+
+
 class error_msg():
     def add_error_msg(self, msg, *args, **kwargs):
         if not os.path.exists('../devops/error.txt'):

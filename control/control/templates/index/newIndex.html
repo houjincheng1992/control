@@ -1,0 +1,128 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="{% static "bz/vendor/bootstrap/dist/css/bootstrap.css" %}">
+		<link rel="stylesheet" href="{% static "bz/vendor/fontawesome/css/font-awesome.min.css" %}">
+		<link rel="stylesheet" href="{% static "bz/base.css" %}">
+		
+		<title>AIS平台</title>
+	</head>
+<!-------------------------------------------------------body----------------------------------------------------------------->
+	<body>
+		<div class="wrapper-ais "><!--总页面-->
+			<div class="left-container "><!--左边总侧栏-->
+				<div class="side-navbar">
+					<div class="side-heading text-center "><!--左上-->
+						<p>AIS平台</p>
+        			</div>
+	        		<div class="side-nav container"><!--左下-->
+			            <ul class="nav nav-stacked nav-pills">
+			                <li  id="modul_btn" class="active"><a href="newindex.html"><span class="fa fa-user"></span>调制</a></li>
+			                <li  id="demodul_btn"><a href="demodul.html"><span class="fa fa-user"></span>解调</a></li>
+			                <li  id="analy_btn"><a href="analysis.html"><span class="fa fa-user"></span>分析</a></li>
+			            </ul>
+	        		</div>
+    			</div>
+			</div>
+			<div class="right-container">
+				<div class="top-nav">
+					 <div class="nav navbar-nav myNav">
+                        <span ><a href="#"><span class="fa fa-user"></span>Super</a> </span>
+                        <!--<span ><a href="#"><span class="fa fa-flag "></span>注册</a> </span>-->
+                        <span ><a href="#"><span class="fa fa-cogs"></span>退出</a> </span>
+                    </div>
+				</div>
+				<div class="main">
+					<div id="ais_modulation">
+						<div class="panel-default control_button panel-body"><!--2016.5.16这里去掉了一个panel类-->
+	                        <span class=" myPanel">
+	                            <button onclick="addmodal()" type="button"  class="handle btn btn-info pull-right"
+                                        data-toggle="modal" data-target="#addModal1" id="add">创建信号</button>
+	                        </span>
+	                        <span class="myPanel ">
+	                            <input type="button" class=" handle btn btn-warning pull-right noclick" id="delete" value="删除信号" />
+	                        </span>
+	                        <span class="myPanel">
+	                            <input  type="button" class="handle btn btn-success pull-right noclick"
+                                       data-toggle="modal" data-target="#addModalType" id="demodul" value="解调信号"></input>
+	                        </span>
+						</div>
+						<div class="panel panel-default modul_contain ">
+                    	    <table class="table table-bordered text-center" id="showTable">
+		                        <thead>
+		                            <tr>
+                                        <th class="text-center active"> signal_name</th>
+		                                <th class="text-center active"> signal_id</th>
+		                                <th class="text-center active">status</th>
+		                                <th class="text-center active">size</th>
+		                                <th class="text-center active">createTime</th>
+                                        <th class="text-center active">demodul_status</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+                                    {% for infoIndex in Info %}
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            {{ infoIndex.name_signal }}</td>
+                                            <td>{{ infoIndex.signal_id }}</td>
+                                            <td>{{ infoIndex.status}}%</td>
+                                            <td>{{ infoIndex.size }} KB</td>
+                                            <td>{{ infoIndex.create_time }}</td>
+                                        </tr>
+                                    {% endfor %}
+		                            <tr>
+		                                <td>
+		                                    <input type="checkbox">信号1
+		                                </td>
+                                        <td>signal-26anue4b</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+                                        <td>no</td>
+		                            </tr>
+                                    <tr>
+		                                <td>
+		                                    <input type="checkbox">信号2
+		                                </td>
+                                        <td>signal-6nmw8vac</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+                                        <td>no</td>
+		                            </tr>
+		                        </tbody>
+		                    </table>
+                        </div>
+                        <div class="text-center pagefooter">
+                        	<ul class="pagination">
+                        		<li><a href="#">&laquo;</a></li>
+                        		<li><a href="#">1</a></li>
+                        		<li><a href="#">2</a></li>
+                        		<li><a href="#">3</a></li>
+                        		<li><a href="#">4</a></li>
+                        		<li><a href="#">&raquo;</a></li>
+                        	</ul>
+                        </div>
+                     </div>
+				</div>
+			</div>
+		</div>
+<!----------------------------------------------addModal1--------------------------------------------------------------------->
+		<div id="addModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<!-------------addModalDemodul--------------------------------------------------------------------------------------------------->
+        <div id="addModalDemodul" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<!-------------addModalType--------------------------------------------------------------------------------------------------->
+        <div id="addModalType" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<script type="application/javascript" src="{% static "bz/vendor/jquery/dist/jquery.js" %}"></script>
+<script type="application/javascript" src="{% static "bz/vendor/bootstrap/dist/js/bootstrap.js" %}"></script>
+<script type="application/javascript" src="{% static "bz/base.js" %}" charset="UTF-8"></script>
+	</body>
+</html>
