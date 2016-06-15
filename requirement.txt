@@ -1,0 +1,8 @@
+本文本主要介绍该平台所需的各项软件以及其版本情况
+
+1. python 2.7.11 (python的位数要与matlab的位数一致，都为32位或者都为64位)
+2. matlab 2015b (matlab版本要在2014b之后，否则没有matlab engine)
+2.1 matlab 引擎
+3.django 1.8 （1.9版本没有syncdb命令）
+3.1 django模块： rest_framework, djcelery
+4. 数据库：mysql, redis 配置在config.ini

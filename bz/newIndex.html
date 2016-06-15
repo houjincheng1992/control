@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/base.css">
+		
+		<title>AIS平台</title>
+		<style>
+		.left-container{ ;
+			float: left;
+			width: 20%;
+			height: 725px;
+		}
+		.top-nav{
+			padding-right: 40px;
+			height: 60px;
+			background:#eee ;
+		}
+		.myNav{
+			line-height: 60px;
+			}
+		.myNav span{
+			margin-right: 10px;
+			}
+		@media (min-width: 700px){ 
+			.myNav{
+				float: right;
+			}
+		}
+		@media (max-width: 700px) { 
+			.top-nav{
+				text-align: center;
+			}
+		}
+		.main{
+			padding: 0 20px 20px 20px;
+		}
+		.myPanel{
+			float: left;
+			padding: 0 5px 0 0;
+		}
+		
+	</style>
+	</head>
+<!-------------------------------------------------------body----------------------------------------------------------------->
+	<body>
+		<div class="wrapper-ais "><!--总页面-->
+			<div class="left-container "><!--左边总侧栏-->
+				<div class="side-navbar">
+					<div class="side-heading text-center "><!--左上-->
+						<p>AIS平台</p>
+        			</div>
+	        		<div class="side-nav container"><!--左下-->
+			            <ul class="nav nav-stacked nav-pills">
+			                <li class="active" id="modul_btn"><a href="#"><span class="fa fa-user"></span>调制</a></li>
+			                <li  id="demodul_btn"><a href="#"><span class="fa fa-user"></span>解调</a></li>
+			                <li  id="analy_btn"><a href="#"><span class="fa fa-user"></span>分析</a></li>
+			            </ul>
+	        		</div>
+    			</div>
+			</div>
+			<div class="right-container">
+				<div class="top-nav">
+					 <div class="nav navbar-nav myNav">
+                        <span ><a href="#"><span class="fa fa-user"></span>Super</a> </span>
+                        <!--<span ><a href="#"><span class="fa fa-flag "></span>注册</a> </span>-->
+                        <span ><a href="#"><span class="fa fa-cogs"></span>退出</a> </span>
+                    </div>
+				</div>
+				<div class="main">
+					<div id="ais_modulation">
+						<div class="panel-default control_button panel-body"><!--2016.5.16这里去掉了一个panel类-->
+	                        <span class=" myPanel">
+	                            <button type="button"  class="handle btn btn-info pull-right" data-toggle="modal" data-target="#addModal1" id="add">创建信号</button>
+	                        </span>
+	                       <span class="myPanel">
+	                            <input type="button" class="handle btn btn-warning pull-right" id="delete" value="删除信号"></input>
+	                        </span>
+	                        <span class="myPanel">
+	                            <input type="button" class="handle btn btn-success pull-right" id="demodul" value="解调信号"></input>
+	                        </span>
+						</div>
+						<div class="panel panel-default modul_contain ">
+                    	    <table class="table table-bordered text-center" id="showTable">
+		                        <thead>
+		                            <tr>
+		                                <th class="text-center active">user</th>
+		                                <th class="text-center active">action_all</th>
+		                                <th class="text-center active"> filename</th>
+		                                <th class="text-center active">lat</th>
+		                                <th class="text-center active">lon</th>
+		                                <th class="text-center active">height</th>
+		                                <th class="text-center active">vesnum</th>   
+		                                <th class="text-center active">obtime</th>   
+		                                <th class="text-center active">ant_pitch</th>   
+		                                <th class="text-center active">ant_azimuth</th>   
+		                                <th class="text-center active">ant_type</th>   
+		                                <!--<th class="text-center active">channel_type</th>   
+		                                <th class="text-center active">protocol</th>   
+		                                <th class="text-center active">snr</th>   
+		                                <th class="text-center active">packagenum</th>      -->
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                            <tr>
+		                                <td>
+		                                    <input type="checkbox">1
+		                                </td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <!--<td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>
+		                                <td>aaa</td>-->
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <input type="checkbox">2
+		                                </td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <!--<td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>
+		                                <td>bbb</td>-->
+		                                		                                
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <input type="checkbox">3
+		                                </td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <!--<td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>
+		                                <td>ccc</td>-->
+		                            </tr>
+		                        </tbody>
+		                    </table>
+                        </div>
+                        <div class="text-center pagefooter">
+                        	<ul class="pagination">
+                        		<li><a href="#">&laquo;</a></li>
+                        		<li><a href="#">1</a></li>
+                        		<li><a href="#">2</a></li>
+                        		<li><a href="#">3</a></li>
+                        		<li><a href="#">4</a></li>
+                        		<li><a href="#">&raquo;</a></li>
+                        	</ul>
+                        </div>
+                     </div>
+					
+     <!-------------------------------------------------解调页面------------------------------------------------------------------->
+            		<div id="ais_demodulation" class="hidden">
+            			解调页面
+            		</div>
+     <!-------------------------------------------------分析页面------------------------------------------------------------------->
+			        <div id="ais_analysis" class="hidden">
+			                        分析页面
+			        </div>
+				</div>
+			</div>
+		</div>
+<!----------------------------------------------Modal1-------------------------------------------------------------------->
+		<div class="modal fade" id="addModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">创建新数据</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered" id="addTable">
+                            <tbody>
+                            <tr>
+                                <th class="text-center">user</th>
+                                <td><input class="form-control" id="user" type="text" name="user"  placeholder="请输入用户名"> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">action_all</th>
+                                <td><input class="form-control" id="action_all" type="text" name="action_all" placeholder="请输入True or False"> 
+                                    <span><span id="action_allcheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">filename</th>
+                                <td><input class="form-control" id="filename" type="text" name="filename" placeholder="请输入文件名，少于20个字符"> 
+                                    <span><span id="filenamecheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">lat</th>
+                                <td><input class="form-control" id="lat" type="text" name="lat" placeholder="请输入-90到90的数字"> 
+                                	<span><span id="latcheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">lon</th>
+                                <td><input class="form-control" id="lon" type="text" name="lon" placeholder="请输入-180到180的数字">
+                                	<span><span id="loncheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">height</th>
+                                <td><input class="form-control" id="height" type="text" name="height" placeholder="请输入大于0的数字">
+                           		    <span><span id="heightcheck" class="check fa fa-check"></span></span>	
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">vesnum</th>
+                                <td><input class="form-control" id="vesnum" type="text" name="vesnum" placeholder="请输入大于0的整数">
+                                	<span><span id="vesnumcheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">obtime</th>
+                                <td><input class="form-control" id="obtime" type="text" name="obtime" placeholder="请输入大于0的数字">
+                                    <span><span id="obtimecheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">ant_pitch</th>
+                                <td><input class="form-control" id="ant_pitch" type="text" name="ant_pitch" placeholder="请输入-180到180的数字">
+                               	    <span><span id="ant_pitchcheck" class="check fa fa-check"></span></span>	
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">ant_azimuth</th>
+                                <td><input class="form-control" id="ant_azimuth" type="text" name="ant_azimuth" placeholder="请输入0到360的数字">
+                               		<span><span id="ant_azimuthcheck" class="check fa fa-check"></span></span>	
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center"> ant_type</th>
+                                <td>
+                                	<!--<input class="form-control" type="text" placeholder="请选择信道类型">-->
+                            		<select class="form-control" id="ant_type" name="ant_type">
+									  <option>yagi_single</option>
+									  <option>6_dip</option>
+									  <option>8_dip</option>
+									  <option>yagi_double</option>
+									  <option>yagi_fourth</option>
+									  <option>sprial_large</option>
+									  <option>sprial_small</option>
+									  <option>gain_4</option>
+									  <option>gian_6</option>
+									</select>
+									<!--<span><span id="ant_typecheck" class="check fa fa-check"></span></span>	-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">protocol</th>
+                                <td><input class="form-control" type="text" name="protocol" placeholder="请选择类型"></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">snr</th>
+                                <td><input class="form-control" type="text" name="snr" placeholder="请输入大于0的数字"></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">packagenum</th>
+                                <td><input class="form-control" type="text" name="packagenum" placeholder="请输入1到20的数字"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="addClose">Close</button>
+                        <button type="button" class="btn btn-primary" id="addOK">OK</button>
+                    </div>
+	                    <!--<div>
+	                    	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal2">Launch demo modal</button>
+	                    </div>-->
+                </div>
+            </div>
+        </div>
+    <!-------------addModal2--------------------------------------------------------------------------------------------------->    
+        <!--<div class="modal fade" id="addModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">创建新数据</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered" id="addTable">
+                            <tbody>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <td><input class="form-control" id="idinput" type="text"  placeholder="请输入-100到100的数字"> 
+                                	<span><span id="idcheck" class="check fa fa-check"></span></span>
+                                </td>
+                               
+                            </tr>
+                            <tr>
+                                <th class="text-center">信号名</th>
+                                <td><input class="form-control" id="signalinput" placeholder="请输入-180到180的数字" type="text">
+                                	<span><span id="signalcheck" class="check fa fa-check"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">状态</th>
+                                <td><input class="form-control" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">信号大小</th>
+                                <td><input class="form-control" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th class="text-center">创建时间</th>
+                                <td><input class="form-control" type="text"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="addClose">Close</button>
+                        <button type="button" class="btn btn-primary" id="addOK">OK</button>
+                    </div>
+	                    
+                </div>
+            </div>
+        </div>-->
+<script type="application/javascript" src="vendor/jquery/dist/jquery.js"></script>
+<script type="application/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script type="application/javascript" src="js/base.js" charset="UTF-8"></script>
+	</body>
+</html>

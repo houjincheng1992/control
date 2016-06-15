@@ -1,0 +1,93 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="{% static "bz/vendor/bootstrap/dist/css/bootstrap.css" %}">
+		<link rel="stylesheet" href="{% static "bz/vendor/fontawesome/css/font-awesome.min.css" %}">
+		<link rel="stylesheet" href="{% static "bz/base.css" %}">
+		
+		<title>AIS平台</title>
+	</head>
+<!-------------------------------------------------------body----------------------------------------------------------------->
+	<body>
+		<div class="wrapper-ais "><!--总页面-->
+			<div class="left-container "><!--左边总侧栏-->
+				<div class="side-navbar">
+					<div class="side-heading text-center "><!--左上-->
+						<p>AIS平台</p>
+        			</div>
+	        		<div class="side-nav container"><!--左下-->
+			            <ul class="nav nav-stacked nav-pills">
+			                <li  id="modul_btn"><a href="newindex.html"><span class="fa fa-user"></span>调制</a></li>
+			                <li  id="demodul_btn" class="active"><a href="demodul.html"><span class="fa fa-user"></span>解调</a></li>
+			                <li  id="analy_btn"><a href="analysis.html"><span class="fa fa-user"></span>分析</a></li>
+			            </ul>
+	        		</div>
+    			</div>
+			</div>
+			<div class="right-container">
+				<div class="top-nav">
+					 <div class="nav navbar-nav myNav">
+                        <span ><a href="#"><span class="fa fa-user"></span>Super</a> </span>
+                        <!--<span ><a href="#"><span class="fa fa-flag "></span>注册</a> </span>-->
+                        <span ><a href="#"><span class="fa fa-cogs"></span>退出</a> </span>
+                    </div>
+				</div>
+				<div class="main">
+     <!-------------------------------------------------解调页面------------------------------------------------------------------->
+            		<div id="ais_demodulation">
+            			<div class="panel-default control_button panel-body">
+	                        <span class=" myPanel ">
+	                            <button onclick="addmodalDemodul()" type="button"  class="handle btn btn-info pull-right"
+                                        data-toggle="modal" data-target="#addModalDemodul" id="addDemodul">创建解调方式</button>
+	                        </span>
+	                        <span class="myPanel">
+	                            <input type="button" class="handle btn btn-warning pull-right" id="deleteDemodul" value="删除解调方式" />
+	                        </span>
+						</div>
+                        <div class="panel panel-default modul_contain ">
+                    	    <table class="table table-bordered text-center" id="showTableDemodul">
+		                        <thead>
+		                            <tr>
+		                                <th class="text-center active">type_name_de</th>
+		                                <th class="text-center active">ant_type_de</th>
+		                                <th class="text-center active">protocol_de</th>
+		                                <th class="text-center active">sync_type</th>
+                                        <th class="text-center active">mod_type</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                            <tr>
+		                                <td>
+		                                    <input type="checkbox">method_1
+		                                </td>
+		                                <td>single_ant</td>
+		                                <td>SOTDMA</td>
+		                                <td>DEFAULT</td>
+                                        <td>gmask</td>
+		                            </tr>
+		                        </tbody>
+		                    </table>
+                        </div>
+            		</div>
+				</div>
+			</div>
+		</div>
+<!----------------------------------------------addModal1--------------------------------------------------------------------->
+		<div id="addModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<!-------------addModalDemodul--------------------------------------------------------------------------------------------------->
+        <div id="addModalDemodul" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<!-------------addModalType--------------------------------------------------------------------------------------------------->
+        <div id="addModalType" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        </div>
+<script type="application/javascript" src="{% static "bz/vendor/jquery/dist/jquery.js" %}"></script>
+<script type="application/javascript" src="{% static "bz/vendor/bootstrap/dist/js/bootstrap.js" %}"></script>
+<script type="application/javascript" src="{% static "bz/base.js" %}" charset="UTF-8"></script>
+<script type="application/javascript" src="{% static "bz/demodul.js" %}" charset="UTF-8"></script>
+	</body>
+</html>

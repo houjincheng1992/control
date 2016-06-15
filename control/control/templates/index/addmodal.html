@@ -1,0 +1,160 @@
+
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">创建新数据</h4>
+         </div>
+        <div class="modal-body">
+            <table class="table table-bordered" id="addTable">
+                <tbody>
+                <tr>
+                    <th class="text-center">filename</th>
+                    <td><input class="form-control" id="filename" type="text"
+                               name="filename" placeholder="请输入文件名，少于20个字符">
+                        <span><span id="filenamecheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">lat</th>
+                    <td><input class="form-control" id="lat" type="text"
+                               name="lat" value="31.8029" placeholder="请输入-90到90的数字">
+                        <span><span id="latcheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">lon</th>
+                    <td><input class="form-control" id="lon" type="text"
+                               name="lon" value="102" placeholder="请输入-180到180的数字">
+                        <span><span id="loncheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">height</th>
+                    <td><input class="form-control" id="height" type="text"
+                               name="height" value="600" placeholder="请输入大于0的数字">
+                        <span><span id="heightcheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">vesnum</th>
+                    <td><input class="form-control" id="vesnum" type="text"
+                               name="vesnum" value="500" placeholder="请输入大于0的整数">
+                        <span><span id="vesnumcheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">obtime</th>
+                    <td><input class="form-control" id="obtime" type="text"
+                               name="obtime" value="60" placeholder="请输入大于0的数字">
+                        <span><span id="obtimecheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">ant_pitch</th>
+                    <td><input class="form-control" id="ant_pitch" type="text"
+                               name="ant_pitch" value="0" placeholder="请输入-180到180的数字">
+                        <span><span id="ant_pitchcheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">ant_azimuth</th>
+                    <td>
+                        <input class="form-control" id="ant_azimuth" type="text"
+                               name="ant_azimuth" value="0" placeholder="请输入0到360的数字">
+                        <span><span id="ant_azimuthcheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center"> ant_type</th>
+                    <td>
+                        <select class="form-control" id="ant_type" name="ant_type">
+                          <option>yagi_single</option>
+                          <option>6_dip</option>
+                          <option>8_dip</option>
+                          <option>yagi_double</option>
+                          <option>yagi_fourth</option>
+                          <option>sprial_large</option>
+                          <option>sprial_small</option>
+                          <option>gain_4</option>
+                          <option>gian_6</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">channel_type</th>
+                    <td>
+                        <select class="form-control" id="channel_type" name="channel_type">
+                          <option>free space loss</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">protocol</th>
+                    <td>
+                        <select class="form-control" id="protocol" name="protocol">
+                          <option>SOTDMA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">snr</th>
+                    <td>
+                        <input class="form-control" id="snr" type="text"
+                               name="snr" value="20" placeholder="请输入大于0的数字">
+                        <span><span id="snrcheck" class="check fa fa-check"></span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">packagenum</th>
+                    <td>
+                        <select class="form-control" id="packagenum" name="packagenum">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-center">distri_mode</th>
+                    <td>
+                        <select class="form-control" id="distri_mode" name="distri_mode">
+                          <option>random</option>
+                          <option>infact</option>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="addClose">Close</button>
+            <button type="button" class="btn btn-primary" id="addOK">OK</button>
+        </div>
+        <!--<div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal2">Launch demo modal</button>
+        </div>-->
+     </div>
+</div>
+
+
+

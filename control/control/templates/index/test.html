@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<title>developerWorks WebGL Three.js Interactive Lights and Shadows Effect Example</title>
+  <script src="{% static "js/extends/OrbitControls.js" %}" ></script>
+  <script src="{% static "js/extends/three.min.js" %}"></script>
+  <script src="{% static "js/extends/Three.js" %}"></script>
+
+
+  <script type="text/javascript">
+
+
+  function draw3D()  {
+    function animate() {
+      requestAnimationFrame(animate);
+      pyramid1.rotateY(Math.PI/180);
+      pyramid2.rotateY(-(Math.PI/180));
+      multi.rotateY(Math.PI/360);
+      renderer.render(scene, camera);
+    }
+
+    var geo = new THREE.CylinderGeometry(0,2,2,4,1, true);
+    var faceColors = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00];
+    faceColors.forEach( function(color, idx) { geo.faces[2 * idx + 1].color.setHex(color);});
+    var pyramid1 = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({vertexColors: THREE.FaceColors}));
+    pyramid1.position.set(-2.5, -1 , 0);
+    var pyramid2 = pyramid1.clone();
+    pyramid1.position.set(2.5, -1 , 0);
+
+
+    var camera = new THREE.PerspectiveCamera(  45, 1024/500,0.1, 100);
+    camera.position.z = 7;
+
+    var multi = new THREE.Object3D();
+    multi.add(pyramid1);
+    multi.add(pyramid2);
+    multi.position.z = 0;
+
+    var scene = new THREE.Scene();
+    scene.add(multi);
+
+    var div = document.getElementById("shapecanvas2");
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(1024,500);
+    div.appendChild( renderer.domElement );
+
+    animate();
+
+  }
+  </script>
+
+  </head>
+  <body onload="draw3D();">
+
+  <span id="shapecanvas2" style="border: none;" width="1024" height="500"></span>
+
+  <br/>
+  </body>
+
+
+</html>
